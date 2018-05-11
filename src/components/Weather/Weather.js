@@ -8,6 +8,7 @@ import HumidityPicture from "./humidity.png";
 const Weather = (props) => { 
     return(
         <div className="weather">
+        { props.time && <p className="time"> Time there : {props.time}</p>}
         { props.temperature &&                
          <p className="result-element">
             <img src={ThermometerPicture} alt="thermometer"></img>
@@ -32,7 +33,17 @@ const Weather = (props) => {
             <span className="weather__key" > Pressure : </span>
             {props.pressure} mb</p> }
             
-        { props.error && <p>{props.error}</p>}
+            { props.windString &&                   
+         <p className="result-element">
+            <img src={PressurePicture} alt="airpressure"></img>
+            <span className="weather__key" > Wind : </span>
+             {props.windString}</p> }
+
+            {props.moreinfo && 
+            <a className="moreinfo" href={props.moreinfo}>More info</a>
+            }
+            
+        { props.error && <p className="error">{props.error}</p>}
          </div>
     );
 }

@@ -14,8 +14,13 @@ class App extends Component {
     humidity : undefined,
     description: undefined,
     pressure: undefined,
-    error: undefined
+    error: undefined,
+    time: undefined,
+    windIntensity: undefined,
+    moreinfo: undefined
   }
+
+  
   
   getWeather = async (e) => {
     e.preventDefault();
@@ -26,12 +31,15 @@ class App extends Component {
     console.log(data);
       if(city && country) {
       this.setState({
-        temperature: data.current_observation.feelslike_c,
+        temperature: data.current_observation.temp_c,
         city: data.current_observation.display_location.city,
         country: data.current_observation.display_location.state_name,
         humidity: data.current_observation.relative_humidity,
         description: data.current_observation.weather,
         pressure: data.current_observation.pressure_mb,
+        windIntensity: data.current_observation.wind_string,
+        time: data.current_observation.local_time_rfc822,
+        moreinfo: data.current_observation.forecast_url,
         error: ""
       });
     } else {
@@ -42,7 +50,11 @@ class App extends Component {
         humidity: undefined,
         description: undefined,
         pressure: undefined,
+        windIntensity: undefined,
+        time: undefined,
+        moreinfo: undefined,
         error: "Please enter valid city and country :)"
+        
       });
     }
   } 
@@ -67,6 +79,9 @@ class App extends Component {
               error={this.state.error}
               pressure={this.state.pressure}
               humidity={this.state.humidity} 
+              windString={this.state.windIntensity}
+              time={this.state.time}
+              moreinfo={this.state.moreinfo}
               />
             </div>
            </div>

@@ -139,3 +139,21 @@ button:active {
   display:flex;
   flex-direction:column;
 }
+
+.time {
+  background-color:orange;
+  text-align:center;
+  width:80%;
+  align-self:center;
+  padding:10px;
+  border-radius:20px;
+  margin-left: -5%;
+}
+.moreinfo {
+  align-self:center;
+  text-align:center;
+  color:gainsboro;
+  padding:5px 10px;
+  background-color: red;
+  border-radius: 20px;
+}

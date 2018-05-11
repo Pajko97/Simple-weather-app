@@ -4,7 +4,7 @@ import Titles from './components/Titles/Titles';
 import Form from './components/Form/Form';
 import Weather from './components/Weather/Weather';
 
-const API_KEY = '2cf018cc68ebe529';
+const API_KEY = '47b84c5bc9d9e462';
 
 class App extends Component {
   state = {
@@ -26,7 +26,7 @@ class App extends Component {
     console.log(data);
       if(city && country) {
       this.setState({
-        temperature: data.current_observation.dewpoint_c,
+        temperature: data.current_observation.feelslike_c,
         city: data.current_observation.display_location.city,
         country: data.current_observation.display_location.state_name,
         humidity: data.current_observation.relative_humidity,

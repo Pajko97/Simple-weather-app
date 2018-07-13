@@ -26,7 +26,7 @@ class App extends Component {
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
-    const api_call = await fetch(`http://api.wunderground.com/api/${API_KEY}/conditions/q/${country}/${city}.json`);
+    const api_call = await fetch(`https://api.wunderground.com/api/${API_KEY}/conditions/q/${country}/${city}.json`);
     const data = await api_call.json();
     console.log(data);
       if(city && country) {
